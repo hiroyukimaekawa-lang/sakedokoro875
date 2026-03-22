@@ -66,3 +66,28 @@ if (lightbox && lightboxImage && lightboxCaption && lightboxClose) {
     }
   });
 }
+
+// Gallery Auto Slideshow
+const galleryGrid = document.querySelector(".gallery-grid");
+if (galleryGrid) {
+  let scrollAmount = 0;
+  const slideStep = 300; // Approximate width of one item
+  const interval = 4000;
+
+  const autoScroll = () => {
+    const maxScroll = galleryGrid.scrollWidth - galleryGrid.clientWidth;
+    if (galleryGrid.scrollLeft >= maxScroll - 10) {
+      galleryGrid.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      galleryGrid.scrollBy({ left: slideStep, behavior: "smooth" });
+    }
+  };
+
+  let scrollInterval = setInterval(autoScroll, interval);
+
+  // Pause on hover
+  galleryGrid.addEventListener("mouseenter", () => clearInterval(scrollInterval));
+  galleryGrid.addEventListener("mouseleave", () => {
+    scrollInterval = setInterval(autoScroll, interval);
+  });
+}

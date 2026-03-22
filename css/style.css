@@ -2,7 +2,7 @@
   --bg-dark: #ffffff;
   --bg-light: #fefcf8;
   --accent: #3a5a40;
-  --accent-gold: #b5734d;
+  --accent-gold: #3a5a40;
   --text-light: #ffffff;
   --text-dark: #2c241e;
   --max-width: 1150px;
@@ -103,6 +103,11 @@ h2 {
 .btn.btn-outline {
   border: 1px solid rgba(255, 255, 255, 0.65);
   background: transparent;
+}
+
+.btn-gold {
+  background: var(--accent-gold) !important;
+  color: #fff !important;
 }
 
 .site-header {
@@ -291,7 +296,7 @@ h2 {
 }
 
 .menu-item img {
-  height: 220px;
+  height: 280px;
   transition: transform 0.35s ease;
 }
 
@@ -323,6 +328,7 @@ h2 {
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 .gallery-grid::-webkit-scrollbar {
