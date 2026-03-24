@@ -5,12 +5,14 @@ if (menuToggle && globalNav) {
   menuToggle.addEventListener("click", () => {
     const isOpen = globalNav.classList.toggle("open");
     menuToggle.setAttribute("aria-expanded", String(isOpen));
+    document.body.style.overflow = isOpen ? "hidden" : "";
   });
 
   globalNav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       globalNav.classList.remove("open");
       menuToggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
     });
   });
 }
